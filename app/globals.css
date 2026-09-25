@@ -138,3 +138,35 @@ button:focus-visible, input:focus-visible { outline: 3px solid #d39a5e; outline-
 @media (max-width: 520px) and (orientation: portrait) {
   .scanner { padding: 0; }.scanner-sheet { width: 100%; height: 100svh; border-radius: 0; }
 }
+
+/* Finish shopping: celebration */
+.celebration { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top)) 18px max(20px, env(safe-area-inset-bottom)); overflow-y: auto; background: #21513ee6; backdrop-filter: blur(6px); animation: fade-in .25s ease-out; }
+.celebration-card { position: relative; z-index: 1; width: min(100%, 440px); padding: 34px 26px 24px; border-radius: 28px; background: var(--card); text-align: center; box-shadow: 0 30px 80px #0005; animation: card-rise .5s cubic-bezier(.2, 1.3, .4, 1) .08s both; }
+.celebration-card .eyebrow { margin: 18px 0 6px; letter-spacing: .3em; }
+.celebration-card h2 { margin: 0; color: var(--primary); font-size: clamp(30px, 8vw, 40px); letter-spacing: -.06em; line-height: 1.05; }
+.celebration-lead { margin: 8px 0 22px; color: var(--muted-foreground); font-size: 14px; }
+.celebration-badge { position: relative; display: grid; place-items: center; width: 92px; height: 92px; margin: -80px auto 0; border-radius: 50%; background: var(--primary); color: #fff; box-shadow: 0 0 0 8px var(--card); animation: badge-pop .6s cubic-bezier(.2, 1.6, .4, 1) .18s both; }
+.celebration-badge span { position: absolute; inset: 0; border-radius: 50%; border: 3px solid #7ee08f; animation: ring 1.2s ease-out .45s both; }
+.celebration-badge svg { animation: check-draw .45s ease-out .5s both; }
+.celebration-goals { display: grid; gap: 10px; padding: 16px; border-radius: 18px; background: #f7f5ee; text-align: left; }
+.celebration-goal { display: grid; grid-template-columns: 62px 1fr 42px; align-items: center; gap: 10px; font-size: 12px; color: var(--muted-foreground); animation: rise .4s ease-out calc(.55s + var(--i) * .07s) both; }
+.celebration-goal b { color: var(--primary); text-align: right; }.celebration-goal .progress-fill { animation: grow .9s ease-out calc(.6s + var(--i) * .07s) both; }
+.celebration-note { margin: 14px 0 20px; color: var(--primary); font-size: 13px; font-weight: 700; }
+.celebration-actions { display: grid; gap: 10px; }.celebration-actions .primary-action { width: 100%; margin: 0; }.celebration-actions .scanner-pill { justify-content: center; min-height: 46px; }
+.confetti { position: fixed; left: 50%; top: 42%; z-index: 2; width: 0; height: 0; pointer-events: none; }
+.confetti i { position: absolute; left: 0; top: 0; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: confetti 1.9s cubic-bezier(.15, .7, .3, 1) var(--d) forwards; }.confetti i.dot { width: 10px; height: 10px; border-radius: 50%; }.confetti i.strip { width: 5px; height: 18px; }
+@keyframes confetti { 0% { opacity: 1; transform: translate(0, 0) rotate(0) scale(.4); } 55% { opacity: 1; transform: translate(var(--x), var(--y)) rotate(calc(var(--r) * .6)) scale(1); } 100% { opacity: 0; transform: translate(calc(var(--x) * 1.15), calc(var(--y) + 260px)) rotate(var(--r)) scale(.9); } }
+@keyframes badge-pop { from { transform: scale(0) rotate(-25deg); } to { transform: scale(1) rotate(0); } }
+@keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
+@keyframes check-draw { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes card-rise { from { opacity: 0; transform: translateY(40px) scale(.94); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .confetti { display: none; }.celebration, .celebration-card, .celebration-badge, .celebration-badge span, .celebration-badge svg, .celebration-goal, .celebration-goal .progress-fill { animation: none; } }
+/* Short, wide screens (phone landscape): badge + actions left, goals right, so the whole card fits */
+@media (max-height: 560px) and (min-width: 600px) {
+  .celebration-card { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'badge goals' 'eyebrow goals' 'title goals' 'lead note' 'actions actions'; column-gap: 22px; width: min(100%, 700px); padding: 18px 22px; text-align: left; }
+  .celebration-badge { grid-area: badge; width: 56px; height: 56px; margin: 0; box-shadow: none; }.celebration-badge svg { width: 30px; height: 30px; }
+  .celebration-card .eyebrow { grid-area: eyebrow; margin: 10px 0 2px; }.celebration-card h2 { grid-area: title; font-size: 28px; }.celebration-lead { grid-area: lead; margin: 6px 0 0; }
+  .celebration-goals { grid-area: goals; gap: 7px; padding: 12px; }.celebration-note { grid-area: note; margin: 8px 0 0; }
+  .celebration-actions { grid-area: actions; grid-template-columns: 1fr auto; margin-top: 12px; }.celebration-actions .primary-action { min-height: 46px; height: auto; }
+}
+@media (max-height: 560px) and (max-width: 599px) { .celebration { place-items: start center; }.celebration-card { margin-top: 64px; } }
