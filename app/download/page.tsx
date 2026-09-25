@@ -26,7 +26,7 @@ export default function DownloadPage() {
           <li>If Android asks, allow your browser to <b>install unknown apps</b> (Settings opens automatically).</li>
           <li>Tap <b>Install</b>, then open NutriCart and allow the camera when you first scan.</li>
         </ol>
-        <p className="hint download-note"><ShieldCheck size={14} /> Signed by NutriCart. Requires Android 7 or later with Chrome installed.</p>
+        <p className="hint download-note"><ShieldCheck size={14} /> Signed by NutriCart. Works on Android 5.0 or later with Chrome installed.</p>
       </section>
     </main>
   )

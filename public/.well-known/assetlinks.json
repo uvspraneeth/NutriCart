@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nutricart.app",
+      "sha256_cert_fingerprints": ["1E:FD:67:AD:BC:3D:0B:1C:5C:78:53:3E:04:68:CF:32:B4:25:53:7A:A7:90:21:14:D8:C7:F2:FE:18:07:91:A0"]
+    }
+  }
+]
