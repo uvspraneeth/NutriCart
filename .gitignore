@@ -1,0 +1,27 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+
+# Environment variables
+.env
+.env*.local
+
+# Common ignores
+node_modules
+.next/
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+public/vendor/
+
+# Android (Trusted Web Activity) build outputs and signing keys. Never commit keys.
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+*.jks
+*.keystore

@@ -1,0 +1,4 @@
+barcode,name,brand,category,serving_size,calories,protein_g,carbs_g,fat_g,fiber_g,image_url,stock,aisle,active
+5449000000996,,,,,,,,,,,48,A1 Drinks,yes
+5000159461122,Snickers,Mars,Chocolate,50 g,244,4.3,30,12,0.7,,36,A3 Snacks,yes
+20724696,"Almonds, shelled",,Nuts,200 g,1152,42,8.6,100,25,https://images.openfoodfacts.org/images/products/000/002/072/4696/front_en.384.400.jpg,12,B2 Dry fruits,yes
