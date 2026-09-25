@@ -1,2 +1,7 @@
 allowBuilds:
   msw: false
+
+# Pinned for a security fix in a transitive dependency (shadcn → @modelcontextprotocol/sdk → hono).
+# Lives here, not in package.json, so every pnpm version (Vercel's and local) reads the same value.
+overrides:
+  hono: 4.12.25
